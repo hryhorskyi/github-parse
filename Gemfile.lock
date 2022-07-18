@@ -268,7 +268,7 @@ DEPENDENCIES
   open-uri
   pg (~> 1.1)
   pry (~> 0.14.1)
-  puma (~> 5.0)
+  puma
   rails (~> 7.0.3, >= 7.0.3.1)
   redis (~> 4.0)
   rspec (~> 3.11)
