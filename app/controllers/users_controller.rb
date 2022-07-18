@@ -12,11 +12,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        if @user.full_name.nil?
-          format.html { redirect_to user_url(@user), notice: 'User does not found on GitHub.' }
-        else
-          format.html { redirect_to user_url(@user), notice: 'User was successfully found.' }
-        end
+        format.html { redirect_to user_url(@user), notice: 'User was successfully found.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
