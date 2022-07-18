@@ -12,8 +12,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: 'User was successfully found.' }
-        format.json { render :show, status: :created, location: @user }
+        if @user.full_name.nil?
+          format.html { redirect_to user_url(@user), notice: 'User does not found on GitHub.' }
+        else
+          format.html { redirect_to user_url(@user), notice: 'User was successfully found.' }
+        end
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -46,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def parse(url)
-    @data_json = URI(url).open { |content| content.read.inspect }
+    false unless @data_json = URI(url).open { |content| content.read.inspect }
     @data = eval(JSON.parse(@data_json.gsub('=>', ':').gsub(':null,', ':nil,')))
     @data
   end
