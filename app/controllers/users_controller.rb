@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def parse(url)
-    false unless @data_json = URI(url).open { |content| content.read.inspect }
+    @data_json = URI(url).open { |content| content.read.inspect }
     @data = eval(JSON.parse(@data_json.gsub('=>', ':').gsub(':null,', ':nil,')))
     @data
   end
