@@ -9,6 +9,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.1.3'
 gem 'factory_bot'
 gem 'faker'
+gem 'graphql'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'jslint_on_rails', '~> 1.1', '>= 1.1.1'
@@ -39,3 +40,4 @@ end
 group :development do
   gem 'web-console'
 end
+gem "graphiql-rails", group: :development
