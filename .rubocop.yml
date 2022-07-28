@@ -6,7 +6,8 @@ AllCops:
   NewCops: enable
   inherit_mode: merge
   Exclude:
-    - 'bin/bundle'  
+    - 'bin/bundle'
+    - 'app/controllers/graphql_controller.rb'  
 
 Rails/I18nLocaleTexts:  
   Enabled: false

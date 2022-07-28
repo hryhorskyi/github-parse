@@ -40,4 +40,4 @@ end
 group :development do
   gem 'web-console'
 end
-gem "graphiql-rails", group: :development
+gem 'graphiql-rails', group: :development
